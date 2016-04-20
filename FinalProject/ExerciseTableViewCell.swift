@@ -7,18 +7,14 @@
 //
 
 import UIKit
+import KCFloatingActionButton
 
 class ExerciseTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK: Properties
+    
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+    
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

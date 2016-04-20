@@ -1,5 +1,5 @@
 //
-//  Squats.swift
+//  Routine.swift
 //  FinalProject
 //
 //  Created by Nelson Chow on 2016-04-20.
@@ -9,7 +9,11 @@
 import Foundation
 import RealmSwift
 
-class Squats: Exercise {
+class Routine: Object {
+    
+    dynamic var name = ""
+    let exercises = List<Exercise>()
+    
     
 // Specify properties to ignore (Realm won't persist these)
     

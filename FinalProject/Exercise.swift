@@ -9,17 +9,44 @@
 import Foundation
 import RealmSwift
 
+
+enum ExerciseType: String {
+    case Squats = "Squats"
+    case None = ""
+}
+
 class Exercise: Object {
     
-    dynamic var name = ""       // name of exercise
-    dynamic var weight = 0.0    // weight lifted in lbs
-    dynamic var rep = 0         // reps
-    dynamic var set = 0         // sets
-    dynamic var oneRepMax = 0   // maximum amount of weight user can lift
+    // MARK: Properties
     
+    dynamic var name = ""               // name of exercise
+    dynamic var weight = 0.0            // weight lifted in lbs
+    dynamic var oneRepMax = 0.0         // maximum amount of weight user can lift
+    
+    
+   convenience init?(name: String, weight: Double, oneRepMax: Double) {
+        self.init()
+        self.name = name
+        self.weight = weight
+        self.oneRepMax = oneRepMax
+    }
+    
+    
+    var type: ExerciseType {
+        get {
+            return ExerciseType(rawValue: self.name) ?? ExerciseType.Squats
+        }
+        
+        set {
+            self.name = newValue.rawValue
+        }
+    }
+
 // Specify properties to ignore (Realm won't persist these)
     
 //  override static func ignoredProperties() -> [String] {
 //    return []
 //  }
 }
+
+
