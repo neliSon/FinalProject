@@ -13,11 +13,5 @@ class Routine: Object {
     
     dynamic var name = ""
     let exercises = List<Exercise>()
-    
-    
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,31 +17,111 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        loadRoutineTemplate()
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    // MARK: General Functions
+    
+    func loadRoutineTemplate() {
+        
+        let realm = try! Realm()
+        if realm.objects(Exercise).count == 0 {
+            
+            // lower body
+            let squats = Exercise()
+            squats.name = "Squats"
+            squats.oneRepMax = 200.0
+            
+            let lunges = Exercise()
+            lunges.name = "Lunges"
+            lunges.oneRepMax = 70.0
+            
+            let legCurls = Exercise()
+            legCurls.name = "Leg Curls"
+            legCurls.oneRepMax = 50.0
+            
+            let calves = Exercise()
+            calves.name = "Calves"
+            calves.oneRepMax = 100.0
+            
+            let lowerBodyRoutine = Routine()
+            lowerBodyRoutine.name = "LOWER BODY"
+            lowerBodyRoutine.exercises.append(squats)
+            lowerBodyRoutine.exercises.append(lunges)
+            lowerBodyRoutine.exercises.append(legCurls)
+            lowerBodyRoutine.exercises.append(calves)
+            
+            // back
+            let pullUps = Exercise()
+            pullUps.name = "Weighted Pull-ups"
+            pullUps.oneRepMax = 200.0
+            
+            let bentOverRows = Exercise()
+            bentOverRows.name = "Bent Over Rows"
+            bentOverRows.oneRepMax = 100.0
+            
+            let bicepCurls = Exercise()
+            bicepCurls.name = "Bicept Curls"
+            bicepCurls.oneRepMax = 30.0
+            
+            let backRoutine = Routine()
+            backRoutine.name = "BACK"
+            backRoutine.exercises.append(pullUps)
+            backRoutine.exercises.append(bentOverRows)
+            backRoutine.exercises.append(bicepCurls)
+            
+            // chest, shoulders
+            let benchPress = Exercise()
+            benchPress.name = "Bench Press"
+            benchPress.oneRepMax = 140.0
+            
+            let militaryPress = Exercise()
+            militaryPress.name = "Military Press"
+            militaryPress.oneRepMax = 100.0
+            
+            let weightedDips = Exercise()
+            weightedDips.name = "Weighted Dips"
+            weightedDips.oneRepMax = 170.0
+            
+            let wristCurls = Exercise()
+            wristCurls.name = "Wrist Curls"
+            wristCurls.oneRepMax = 40.0
+            
+            let chestAndShouldersRoutine = Routine()
+            chestAndShouldersRoutine.name = "CHEST & SHOULDERS"
+            chestAndShouldersRoutine.exercises.append(benchPress)
+            chestAndShouldersRoutine.exercises.append(militaryPress)
+            chestAndShouldersRoutine.exercises.append(weightedDips)
+            chestAndShouldersRoutine.exercises.append(wristCurls)
+            
+            // save data
+            
+            try! realm.write {
+                // lower body
+                realm.add(squats)
+                realm.add(lunges)
+                realm.add(legCurls)
+                realm.add(calves)
+                
+                realm.add(lowerBodyRoutine)
+                
+                // back
+                realm.add(pullUps)
+                realm.add(bentOverRows)
+                realm.add(bicepCurls)
+                
+                realm.add(backRoutine)
+                
+                // chest, shoulders
+                realm.add(benchPress)
+                realm.add(militaryPress)
+                realm.add(weightedDips)
+                realm.add(wristCurls)
+                
+                realm.add(chestAndShouldersRoutine)
+            }
+        }
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
