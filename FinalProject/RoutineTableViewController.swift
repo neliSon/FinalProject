@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SnappingStepper
 
 class RoutineTableViewController: UITableViewController {
     
@@ -21,12 +22,6 @@ class RoutineTableViewController: UITableViewController {
         
         // load data
         loadRoutineTemplate()
-    }
-
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -44,8 +39,11 @@ class RoutineTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! ExerciseTableViewCell
         
+        
+        
         let exercise = exercises[indexPath.row]
         
+        cell.oneRepMaxLabel.text = "\(exercise.oneRepMax)"
         cell.displayExercise(exercise)
         cell.configureButtons(exercise)
 
@@ -86,7 +84,7 @@ class RoutineTableViewController: UITableViewController {
             lunges.oneRepMax = 70.0
             
             let legCurls = Exercise()
-            legCurls.name = "Let Curls"
+            legCurls.name = "Leg Curls"
             legCurls.oneRepMax = 50.0
             
             let calves = Exercise()
