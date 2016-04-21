@@ -10,13 +10,17 @@ import UIKit
 import RealmSwift
 
 class RoutineTableViewController: UITableViewController {
+    
+    // MARK: Properties
+    
+    var exercises = (try! Realm()).objects(Exercise)//.filter(<#T##predicate: NSPredicate##NSPredicate#>)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         // load data
-        // loadRoutineTemplate()
+        loadRoutineTemplate()
     }
 
     
@@ -34,13 +38,16 @@ class RoutineTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return exercises.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! ExerciseTableViewCell
+        
+        let exercise = exercises[indexPath.row]
+        
+        cell.displayExercise(exercise)
+        cell.configureButtons(exercise)
 
         return cell
     }
@@ -65,76 +72,78 @@ class RoutineTableViewController: UITableViewController {
     // MARK: General Functions
     
     func loadRoutineTemplate() {
+        
         // lower body
+        
         let realm = try! Realm()
-        
-        let squats = Exercise()
-        squats.name = "Squats"
-        squats.oneRepMax = 200.0
-        
-        let lunges = Exercise()
-        lunges.name = "Lunges"
-        lunges.oneRepMax = 70.0
-        
-        let legCurls = Exercise()
-        legCurls.name = "Let Curls"
-        legCurls.oneRepMax = 50.0
-        
-        let calves = Exercise()
-        calves.name = "Calves"
-        calves.oneRepMax = 100.0
-        
-        // back
-        let pullUps = Exercise()
-        pullUps.name = "Pull-ups"
-        pullUps.oneRepMax = 200.0
-        
-        let bentOverRows = Exercise()
-        bentOverRows.name = "Bent Over Rows"
-        bentOverRows.oneRepMax = 100.0
-        
-        let bicepCurls = Exercise()
-        bicepCurls.name = "Bicept Curls"
-        bicepCurls.oneRepMax = 30.0
-        
-        // chest, shoulders
-        let benchPress = Exercise()
-        benchPress.name = "Bench Press"
-        benchPress.oneRepMax = 140.0
-        
-        let militaryPress = Exercise()
-        militaryPress.name = "Military Press"
-        militaryPress.oneRepMax = 100.0
-        
-        let weightedDips = Exercise()
-        weightedDips.name = "Weighted Dips"
-        weightedDips.oneRepMax = 170.0
-        
-        let wristCurls = Exercise()
-        wristCurls.name = "Wrist Curls"
-        wristCurls.oneRepMax = 40.0
-        
-        // save data
-        
-        try! realm.write {
-            // lower body
-            realm.add(squats)
-            realm.add(lunges)
-            realm.add(legCurls)
-            realm.add(calves)
+        if realm.objects(Exercise).count == 0 {
+            let squats = Exercise()
+            squats.name = "Squats"
+            squats.oneRepMax = 200.0
+            
+            let lunges = Exercise()
+            lunges.name = "Lunges"
+            lunges.oneRepMax = 70.0
+            
+            let legCurls = Exercise()
+            legCurls.name = "Let Curls"
+            legCurls.oneRepMax = 50.0
+            
+            let calves = Exercise()
+            calves.name = "Calves"
+            calves.oneRepMax = 100.0
             
             // back
-            realm.add(pullUps)
-            realm.add(bentOverRows)
-            realm.add(bicepCurls)
+            let pullUps = Exercise()
+            pullUps.name = "Pull-ups"
+            pullUps.oneRepMax = 200.0
+            
+            let bentOverRows = Exercise()
+            bentOverRows.name = "Bent Over Rows"
+            bentOverRows.oneRepMax = 100.0
+            
+            let bicepCurls = Exercise()
+            bicepCurls.name = "Bicept Curls"
+            bicepCurls.oneRepMax = 30.0
             
             // chest, shoulders
-            realm.add(benchPress)
-            realm.add(militaryPress)
-            realm.add(weightedDips)
-            realm.add(wristCurls)
+            let benchPress = Exercise()
+            benchPress.name = "Bench Press"
+            benchPress.oneRepMax = 140.0
+            
+            let militaryPress = Exercise()
+            militaryPress.name = "Military Press"
+            militaryPress.oneRepMax = 100.0
+            
+            let weightedDips = Exercise()
+            weightedDips.name = "Weighted Dips"
+            weightedDips.oneRepMax = 170.0
+            
+            let wristCurls = Exercise()
+            wristCurls.name = "Wrist Curls"
+            wristCurls.oneRepMax = 40.0
+            
+            // save data
+            
+            try! realm.write {
+                // lower body
+                realm.add(squats)
+                realm.add(lunges)
+                realm.add(legCurls)
+                realm.add(calves)
+                
+                // back
+                realm.add(pullUps)
+                realm.add(bentOverRows)
+                realm.add(bicepCurls)
+                
+                // chest, shoulders
+                realm.add(benchPress)
+                realm.add(militaryPress)
+                realm.add(weightedDips)
+                realm.add(wristCurls)
+            }
         }
-        
-        print(realm.objects(Exercise).count)
+//        print(realm.objects(Exercise).count)
     }
 }

@@ -31,7 +31,6 @@ class Exercise: Object {
         self.oneRepMax = oneRepMax
     }
     
-    
     var type: ExerciseType {
         get {
             return ExerciseType(rawValue: self.name) ?? ExerciseType.Squats
