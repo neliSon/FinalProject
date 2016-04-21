@@ -12,8 +12,8 @@ import KCFloatingActionButton
 class ExerciseTableViewCell: UITableViewCell {
 
     // MARK: Properties
-    let setsOfReps = [20, 8, 6, 5, 5, 2]              // amount of reps per set
-    let weightOfReps = [0.5, 0.6, 0.6, 0.8, 0.8, 0.9] // percentage of ORM per set
+    let setsOfReps = [20, 8, 6, 5, 5, 2]                    // amount of reps per set
+    let percentOfWeights = [0.5, 0.6, 0.6, 0.8, 0.8, 0.9]   // percentage of ORM per set
     
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var exerciseStackView: UIStackView!
@@ -38,14 +38,21 @@ class ExerciseTableViewCell: UITableViewCell {
             view.removeFromSuperview()
         }
         
-        for eachSet in setsOfReps {
+        let weights = exercise.weightsForSet()
+        
+        for i in 0..<setsOfReps.count {
+            let eachSet = setsOfReps[i]
+            let weight = weights[i]
+            
             if let customView = NSBundle.mainBundle().loadNibNamed("SetButton", owner: self, options: nil).first as? SetButton {
 
             customView.setButton.setTitle("\(eachSet)", forState: [])
                 //  set weight based on a percentage of ORM
                 //  customView.weightLabel.text = exercise.oneRepMax
                 
-            self.exerciseStackView.addArrangedSubview(customView)
+                customView.weightLabel.text = String(format: "%0.0f", weight)
+                
+                self.exerciseStackView.addArrangedSubview(customView)
             }
         }
         

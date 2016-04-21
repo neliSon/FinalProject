@@ -20,14 +20,12 @@ class Exercise: Object {
     // MARK: Properties
     
     dynamic var name = ""               // name of exercise
-    dynamic var weight = 0.0            // weight lifted in lbs
     dynamic var oneRepMax = 0.0         // maximum amount of weight user can lift
     
     
-   convenience init?(name: String, weight: Double, oneRepMax: Double) {
+   convenience init?(name: String, oneRepMax: Double) {
         self.init()
         self.name = name
-        self.weight = weight
         self.oneRepMax = oneRepMax
     }
     
@@ -46,6 +44,19 @@ class Exercise: Object {
 //  override static func ignoredProperties() -> [String] {
 //    return []
 //  }
+    
+    
+    func weightsForSet() -> [Double] {
+    
+        let percentages = [0.5, 0.6, 0.6, 0.8, 0.8, 0.9]
+        
+        let weights = percentages.map {
+            percentage in
+            return self.oneRepMax * percentage
+        }
+        
+        return weights
+    }
 }
 
 

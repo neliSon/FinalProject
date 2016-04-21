@@ -67,6 +67,11 @@ class RoutineTableViewController: UITableViewController {
         }    
     }
 
+    // MARK: TableView Delegate
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
     // MARK: General Functions
     
     func loadRoutineTemplate() {
