@@ -57,7 +57,7 @@ class ExerciseTableViewCell: UITableViewCell {
             if let customView = NSBundle.mainBundle().loadNibNamed("SetButton", owner: self, options: nil).first as? SetButton {
                 
                 customView.setButton.setTitle("\(eachSet)", forState: [])
-                customView.weightLabel.text = String(format: "%0.0f lbs", weight)
+                customView.weightLabel.text = String(format: "%0.f lbs", weight)
                 
                 self.exerciseStackView.addArrangedSubview(customView)
             }
@@ -69,7 +69,7 @@ class ExerciseTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        oneRepMaxLabel.text = "\(exercise.oneRepMax) lbs"
+        oneRepMaxLabel.text = String(format: "%0.f lbs", exercise.oneRepMax)
         exerciseName()
         configureButtons()
     }

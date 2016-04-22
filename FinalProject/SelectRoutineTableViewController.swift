@@ -13,7 +13,8 @@ class SelectRoutineTableViewController: UITableViewController {
 
     // MARK: Properties
     var routines = (try! Realm()).objects(Routine)
-    
+//    var routineType: RoutineType!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,9 +41,13 @@ class SelectRoutineTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showExerciseSegue" {
+
             if let routineSelected = tableView.indexPathForSelectedRow?.row {
                 
-                
+                if let destinationVC: RoutineTableViewController = segue.destinationViewController as? RoutineTableViewController {
+                    let routine = routines[routineSelected]
+                    destinationVC.routine = routine
+                }
             }
         }
     }

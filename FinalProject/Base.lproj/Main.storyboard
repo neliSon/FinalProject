@@ -80,14 +80,14 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Ip-fM-05a">
                                             <rect key="frame" x="0.0" y="40" width="375" height="70"/>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNL-J4-R00">
-                                            <rect key="frame" x="297" y="15.5" width="31.5" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNL-J4-R00">
+                                            <rect key="frame" x="299.5" y="18" width="29" height="22"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="16"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-VY-9WV">
-                                            <rect key="frame" x="329" y="11.5" width="30" height="30"/>
+                                            <rect key="frame" x="329" y="13.5" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Uhf-VY-9WV" secondAttribute="height" multiplier="1:1" id="tHb-lR-kou"/>
                                                 <constraint firstAttribute="width" constant="30" id="y6U-WT-mjr"/>
@@ -98,7 +98,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxZ-ZQ-L7N">
-                                            <rect key="frame" x="267" y="11.5" width="30" height="30"/>
+                                            <rect key="frame" x="269.5" y="13.5" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="HxZ-ZQ-L7N" secondAttribute="height" multiplier="1:1" id="5L8-8U-u2c"/>
                                                 <constraint firstAttribute="width" constant="30" id="GHd-P1-Dzq"/>
@@ -121,6 +121,7 @@
                                         <constraint firstItem="8Ip-fM-05a" firstAttribute="top" secondItem="HxZ-ZQ-L7N" secondAttribute="bottom" id="T27-fi-NcB"/>
                                         <constraint firstItem="eNL-J4-R00" firstAttribute="leading" secondItem="HxZ-ZQ-L7N" secondAttribute="trailing" id="URv-sS-z4O"/>
                                         <constraint firstItem="Uhf-VY-9WV" firstAttribute="leading" secondItem="eNL-J4-R00" secondAttribute="trailing" id="Z3k-NW-nZf"/>
+                                        <constraint firstItem="8Ip-fM-05a" firstAttribute="top" secondItem="eNL-J4-R00" secondAttribute="bottom" id="aeU-Gj-ohF"/>
                                         <constraint firstAttribute="bottom" secondItem="8Ip-fM-05a" secondAttribute="bottom" id="eaq-zM-ZI6"/>
                                         <constraint firstItem="HxZ-ZQ-L7N" firstAttribute="centerY" secondItem="eNL-J4-R00" secondAttribute="centerY" id="iaC-Yj-c43"/>
                                         <constraint firstAttribute="trailing" secondItem="8Ip-fM-05a" secondAttribute="trailing" id="ljR-0r-oi7"/>
@@ -132,6 +133,7 @@
                                             <exclude reference="NIh-SQ-goL"/>
                                             <exclude reference="T27-fi-NcB"/>
                                             <exclude reference="iaC-Yj-c43"/>
+                                            <exclude reference="Q51-pm-Kpt"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -149,7 +151,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v1U-fR-bqN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g22-62-0ES"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g22-62-0ES">
+                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -163,9 +167,16 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VSw-Wb-Hrg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HPE-1F-K9D">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="HPE-1F-K9D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="0.0"/>
+                            <color key="textShadowColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

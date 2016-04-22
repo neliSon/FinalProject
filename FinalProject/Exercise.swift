@@ -24,7 +24,7 @@ class Exercise: Object {
 
     func weightsForSet() -> [Double] {
     
-        let percentages = [0.5, 0.6, 0.6, 0.8, 0.8, 0.9]
+        let percentages = [0.5, 0.6, 0.8, 0.8, 0.9, 0.95]
         
         let weights = percentages.map {
             percentage in
@@ -34,9 +34,10 @@ class Exercise: Object {
         return weights
     }
 }
-
-enum RoutineType {
-    case LowerBody
-    case Back
-    case ChestAndShoulders
-}
+//
+//enum RoutineType: Int {
+//    case LowerBody
+//    case Back
+//    case ChestAndShoulders
+//    case All
+//}

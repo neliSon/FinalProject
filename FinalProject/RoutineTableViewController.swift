@@ -13,25 +13,35 @@ import SnappingStepper
 class RoutineTableViewController: UITableViewController {
     
     // MARK: Properties
-    
-    var exercises = (try! Realm()).objects(Exercise)//.filter(predicate: NSPredicate)
-    var routineType: RoutineType!
+  
+    var routine: Routine! = nil
+//    var exercises = (try! Realm()).objects(Exercise)//.filter(predicate: NSPredicate)
+//    var routineType: RoutineType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if let routineType = routineType {
+//            switch routineType {
+//            case .LowerBody:
+//                exercises = 
+//            default:
+//                code
+//            }
+//        }
 
     }
 
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercises.count
+        return routine.exercises.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! ExerciseTableViewCell
         
-        let exercise = exercises[indexPath.row]
+        let exercise = routine.exercises[indexPath.row]
         
         cell.exercise = exercise
 
