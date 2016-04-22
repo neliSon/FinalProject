@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: Properties
+    var routine: Routine! = nil
+    
     @IBOutlet weak var exerciseNameTextField: UITextField!
     @IBOutlet weak var oneRepMaxTextField: UITextField!
     @IBOutlet weak var saveExerciseButton: UIBarButtonItem!
@@ -21,12 +24,25 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
         exerciseNameTextField.delegate = self
         oneRepMaxTextField.delegate = self
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddExerciseTableViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         checkValidFields()  // Enable save button only if all fields are not empty.
     }
     
     // MARK: Actions
+    
     @IBAction func saveExerciseButton(sender: UIBarButtonItem) {
-        print("Works")
+        // create exercise with name and weight
+        let name = exerciseNameTextField.text!
+        let ormWeight = Double(oneRepMaxTextField.text!) ?? 0.0
+        
+        let exercise = Exercise(name: name, oneRepMax: ormWeight)
+        let realm = try! Realm()
+        try! realm.write {
+            routine.exercises.append(exercise!)
+        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: UITextFieldDelegate
@@ -37,10 +53,20 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
         return true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        saveExerciseButton.enabled = false
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        checkValidFields()
+//    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidFields()
     }
+    
+    // MARK: UITableViewDelegate
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
+    // MARK: General Functions
     
     func checkValidFields() {
         // Disable the Save button if the text fields are empty.
@@ -53,7 +79,7 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
         saveExerciseButton.enabled = nameFieldHasText && ormFieldHasText
     }
     
-    func textFieldDidEndEditing(textField: UITextField) -> Bool {
-        checkValidFields()
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
