@@ -42,7 +42,14 @@ class SelectRoutineTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showExerciseSegue" {
 
-            if let routineSelected = tableView.indexPathForSelectedRow?.row {
+            
+            var indexPath: NSIndexPath? = tableView.indexPathForSelectedRow
+            
+            if let sender = sender as? UITableViewCell {
+                indexPath = tableView.indexPathForCell(sender)
+            }
+            
+            if let routineSelected = indexPath?.row {
                 
                 if let destinationVC: RoutineTableViewController = segue.destinationViewController as? RoutineTableViewController {
                     let routine = routines[routineSelected]

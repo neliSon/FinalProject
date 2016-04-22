@@ -15,21 +15,12 @@ class RoutineTableViewController: UITableViewController {
     // MARK: Properties
   
     var routine: Routine! = nil
-//    var exercises = (try! Realm()).objects(Exercise)//.filter(predicate: NSPredicate)
-//    var routineType: RoutineType!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if let routineType = routineType {
-//            switch routineType {
-//            case .LowerBody:
-//                exercises = 
-//            default:
-//                code
-//            }
-//        }
 
+        self.title = routine.name
     }
 
     // MARK: - Table view data source
@@ -68,6 +59,13 @@ class RoutineTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
+    
+    // MARK: Actions
+    @IBAction func addCustomExerciseButton(sender: UIBarButtonItem) {
+        // segue into AddCustomExerciseVC
+        self.performSegueWithIdentifier("addExerciseSegue", sender: self)
+    }
+    
     
     // MARK: General Functions
     

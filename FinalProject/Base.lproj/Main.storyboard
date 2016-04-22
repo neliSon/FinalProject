@@ -5,27 +5,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Select Routine Table View Controller-->
         <scene sceneID="xTo-7U-VNU">
             <objects>
                 <tableViewController id="3Dk-fm-Y3i" customClass="SelectRoutineTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XrP-JG-dsS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="XrP-JG-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoutineCell" id="x9F-ZZ-lq8" customClass="SelectRoutineTableViewCell" customModule="FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x9F-ZZ-lq8" id="UA8-0Q-vOH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unI-z8-nIr">
-                                            <rect key="frame" x="164" y="7" width="47.5" height="30"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="21"/>
+                                            <rect key="frame" x="143" y="47" width="90" height="56"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,7 +39,10 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="routineLabel" destination="unI-z8-nIr" id="YCj-B6-b80"/>
-                                    <segue destination="ub0-w6-Yep" kind="show" identifier="showExerciseSegue" id="g3S-TO-vcK"/>
+                                    <segue destination="ub0-w6-Yep" kind="show" identifier="showExerciseSegue" id="g3S-TO-vcK">
+                                        <segue key="commit" inheritsFrom="parent" id="0Tn-3u-GwC"/>
+                                        <segue key="preview" inheritsFrom="commit" id="c74-4E-bWA"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,6 +157,10 @@
                     <navigationItem key="navigationItem" id="v1U-fR-bqN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g22-62-0ES">
                             <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addCustomExerciseButton:" destination="ub0-w6-Yep" id="1ux-Et-Sch"/>
+                                <segue destination="f4W-LB-r5L" kind="show" identifier="addExerciseSegue" id="iqg-OG-Fcp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -161,6 +169,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RNI-5E-WSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3376.5" y="302.5"/>
+        </scene>
+        <!--Add Exercise Table View Controller-->
+        <scene sceneID="fa0-Xn-IcN">
+            <objects>
+                <tableViewController id="f4W-LB-r5L" customClass="AddExerciseTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5ju-M0-qC6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="TyO-vI-dkb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customExerciseCell" rowHeight="100" id="K4v-bD-mki">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K4v-bD-mki" id="EyE-mT-jXH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-WL-9Gy">
+                                                    <rect key="frame" x="8" y="35" width="114.5" height="28.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="eg. Cable Rows" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jeb-ZA-X8s">
+                                                    <rect key="frame" x="132" y="36" width="234.5" height="28"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jeb-ZA-X8s" firstAttribute="leading" secondItem="yxc-WL-9Gy" secondAttribute="trailing" constant="10" id="0FO-nD-UeY"/>
+                                                <constraint firstItem="yxc-WL-9Gy" firstAttribute="centerY" secondItem="EyE-mT-jXH" secondAttribute="centerY" id="JpR-Tn-lf5"/>
+                                                <constraint firstItem="jeb-ZA-X8s" firstAttribute="centerY" secondItem="yxc-WL-9Gy" secondAttribute="centerY" id="KqL-AY-WFI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jeb-ZA-X8s" secondAttribute="trailing" id="Nyh-Ad-xdf"/>
+                                                <constraint firstItem="yxc-WL-9Gy" firstAttribute="leading" secondItem="EyE-mT-jXH" secondAttribute="leadingMargin" id="Qce-m5-dWc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customExerciseCell" rowHeight="100" id="SRq-J0-ZrE">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SRq-J0-ZrE" id="fdQ-GT-p5l">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Rep Max Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR0-rA-YB3">
+                                                    <rect key="frame" x="8" y="35" width="164" height="28.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="eg. 130" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-ZF-D0B">
+                                                    <rect key="frame" x="182" y="36" width="185" height="28"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zlv-ZF-D0B" firstAttribute="trailing" secondItem="fdQ-GT-p5l" secondAttribute="trailingMargin" id="I56-Am-kev"/>
+                                                <constraint firstItem="bR0-rA-YB3" firstAttribute="centerY" secondItem="fdQ-GT-p5l" secondAttribute="centerY" id="QTl-ha-fhr"/>
+                                                <constraint firstItem="bR0-rA-YB3" firstAttribute="leading" secondItem="fdQ-GT-p5l" secondAttribute="leadingMargin" id="edp-s6-25E"/>
+                                                <constraint firstItem="Zlv-ZF-D0B" firstAttribute="centerY" secondItem="bR0-rA-YB3" secondAttribute="centerY" id="hXz-w6-L8O"/>
+                                                <constraint firstItem="Zlv-ZF-D0B" firstAttribute="leading" secondItem="bR0-rA-YB3" secondAttribute="trailing" constant="10" id="yDc-In-M4b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="f4W-LB-r5L" id="RZe-3d-pQP"/>
+                            <outlet property="delegate" destination="f4W-LB-r5L" id="0ha-wq-8q0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zDi-ER-bWV">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="mLf-9N-uTL">
+                            <connections>
+                                <action selector="saveExerciseButton:" destination="f4W-LB-r5L" id="gqS-tv-2pq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="exerciseNameTextField" destination="jeb-ZA-X8s" id="VJN-GP-JP7"/>
+                        <outlet property="oneRepMaxTextField" destination="Zlv-ZF-D0B" id="nCM-EQ-3cf"/>
+                        <outlet property="saveExerciseButton" destination="mLf-9N-uTL" id="w3G-dq-alb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XE6-Ft-paP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3888.5" y="302.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yKd-nI-f9N">
@@ -174,7 +279,8 @@
                         <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                            <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -188,5 +294,8 @@
             <point key="canvasLocation" x="1917" y="310"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g3S-TO-vcK"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
