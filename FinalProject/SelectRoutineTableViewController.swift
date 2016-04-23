@@ -39,10 +39,11 @@ class SelectRoutineTableViewController: UITableViewController {
         return false
     }
     
+    // MARK: Segues
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showExerciseSegue" {
 
-            
             var indexPath: NSIndexPath? = tableView.indexPathForSelectedRow
             
             if let sender = sender as? UITableViewCell {

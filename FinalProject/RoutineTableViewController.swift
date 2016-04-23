@@ -16,7 +16,6 @@ class RoutineTableViewController: UITableViewController {
   
     var routine: Routine! = nil
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +52,6 @@ class RoutineTableViewController: UITableViewController {
         return true
     }
  
-
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
