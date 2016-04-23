@@ -34,6 +34,9 @@
                             <integer key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="doneSetButton:" destination="vwf-lJ-VrR" eventType="touchUpInside" id="KRX-C9-MeQ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

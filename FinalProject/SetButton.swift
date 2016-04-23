@@ -13,4 +13,7 @@ class SetButton: UIView {
     @IBOutlet weak var setButton: UIButton!
     @IBOutlet weak var weightLabel: UILabel!
 
+    @IBAction func doneSetButton(sender: UIButton) {
+        
+    }
 }

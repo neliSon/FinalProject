@@ -176,7 +176,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RNI-5E-WSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4068.5" y="309.5"/>
+            <point key="canvasLocation" x="4058.5" y="309.5"/>
         </scene>
         <!--Add Exercise Table View Controller-->
         <scene sceneID="fa0-Xn-IcN">
@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XE6-Ft-paP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4576.5" y="310.5"/>
+            <point key="canvasLocation" x="4556.5" y="310.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yKd-nI-f9N">
@@ -365,7 +365,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bph-K4-R28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3049.5" y="1181.5"/>
+            <point key="canvasLocation" x="3056.5" y="1181.5"/>
         </scene>
         <!--Graphs Table View Controller-->
         <scene sceneID="uuG-6R-i42">
@@ -395,7 +395,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u93-RM-EcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3558.5" y="1181.5"/>
+            <point key="canvasLocation" x="3541.5" y="1181.5"/>
         </scene>
     </scenes>
     <resources>
