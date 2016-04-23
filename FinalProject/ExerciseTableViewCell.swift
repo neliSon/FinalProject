@@ -57,7 +57,7 @@ class ExerciseTableViewCell: UITableViewCell {
             if let customView = NSBundle.mainBundle().loadNibNamed("SetButton", owner: self, options: nil).first as? SetButton {
                 
                 customView.setButton.setTitle("\(eachSet)", forState: [])
-                customView.weightLabel.text = String(format: "%0.f lbs", weight)
+                customView.weightLabel.text = String(format: "%0.f lbs", roundToFives(weight))
                 
                 self.exerciseStackView.addArrangedSubview(customView)
             }

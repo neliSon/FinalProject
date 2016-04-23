@@ -28,11 +28,15 @@ class Exercise: Object {
         
         let weights = percentages.map {
             percentage in
-            return self.oneRepMax * percentage
+            return roundToFives(self.oneRepMax * percentage)
         }
         
         return weights
     }
+}
+
+func roundToFives(x : Double) -> Double {
+    return 5 * (round(x / 5.0))     // round any double to the nearest 5
 }
 //
 //enum RoutineType: Int {

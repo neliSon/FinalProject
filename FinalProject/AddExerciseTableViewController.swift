@@ -37,7 +37,7 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
         let name = exerciseNameTextField.text!
         let ormWeight = Double(oneRepMaxTextField.text!) ?? 0.0
         
-        let exercise = Exercise(name: name, oneRepMax: ormWeight)
+        let exercise = Exercise(name: name, oneRepMax: roundToFives(ormWeight))
         let realm = try! Realm()
         try! realm.write {
             routine.exercises.append(exercise!)
@@ -52,10 +52,6 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
         textField.resignFirstResponder()
         return true
     }
-    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        checkValidFields()
-//    }
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidFields()

@@ -83,8 +83,7 @@ class RoutineTableViewController: UITableViewController {
             destinationVC.routine = routine
         }
     }
-    
-    
+
     // MARK: General Functions
     
 }
