@@ -23,6 +23,7 @@ class ExerciseTableViewCell: UITableViewCell {
     @IBOutlet weak var exerciseStackView: UIStackView!
     @IBOutlet weak var oneRepMaxLabel: UILabel!
 
+    
     // MARK: Actions
     @IBAction func addWeightButton(sender: UIButton) {
         try! Realm().write {
@@ -56,7 +57,12 @@ class ExerciseTableViewCell: UITableViewCell {
             
             if let customView = NSBundle.mainBundle().loadNibNamed("SetButton", owner: self, options: nil).first as? SetButton {
                 
-                customView.setButton.setTitle("\(eachSet)", forState: [])
+                customView.setButton.setTitle("\(eachSet)", forState: .Normal)
+//                customView.setButton.setTitle("0", forState: .Selected)
+//                
+//                if i != 0 {
+//                    customView.setButton.enabled = false
+//                }
                 customView.weightLabel.text = String(format: "%0.f lbs", roundToFives(weight))
                 
                 self.exerciseStackView.addArrangedSubview(customView)
