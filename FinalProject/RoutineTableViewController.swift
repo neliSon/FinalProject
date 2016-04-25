@@ -19,6 +19,7 @@ class RoutineTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = routine.name
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -30,6 +31,7 @@ class RoutineTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +45,13 @@ class RoutineTableViewController: UITableViewController {
         
         cell.exercise = exercise
 
+        // Buttons should only be enabled when the previous one is pressed.
+        cell.secondSetButton.enabled = false
+        cell.thirdSetButton.enabled = false
+        cell.fourthSetButton.enabled = false
+        cell.fifthSetButton.enabled = false
+        cell.sixthSetButton.enabled = false
+        
         return cell
     }
 

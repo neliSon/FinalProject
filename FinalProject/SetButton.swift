@@ -6,14 +6,14 @@
 //  Copyright © 2016 Nelson Chow. All rights reserved.
 //
 
-import UIKit
-
-class SetButton: UIView {
-
-    @IBOutlet weak var setButton: UIButton!
-    @IBOutlet weak var weightLabel: UILabel!
-
-    @IBAction func doneSetButton(sender: UIButton) {
-        sender.selected = !sender.selected
-    }
-}
+//import UIKit
+//
+//class SetButton: UIView {
+//
+//    @IBOutlet weak var setButton: UIButton!
+//    @IBOutlet weak var weightLabel: UILabel!
+//
+//    @IBAction func doneSetButton(sender: UIButton) {
+//        sender.selected = !sender.selected
+//    }
+//}

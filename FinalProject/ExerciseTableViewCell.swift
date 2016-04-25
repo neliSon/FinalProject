@@ -12,19 +12,67 @@ import RealmSwift
 class ExerciseTableViewCell: UITableViewCell {
 
     // MARK: Properties
-    let setsOfReps = [20, 8, 6, 5, 5, 2]                    // amount of reps per set
+//    let setsOfReps = [20, 8, 6, 5, 5, 2]                    // amount of reps per set
     var exercise: Exercise! = nil {
         didSet {
             updateUI()
         }
     }
     
+    // Set Buttons
+    @IBOutlet weak var firstSetButton: UIButton!
+    @IBOutlet weak var secondSetButton: UIButton!
+    @IBOutlet weak var thirdSetButton: UIButton!
+    @IBOutlet weak var fourthSetButton: UIButton!
+    @IBOutlet weak var fifthSetButton: UIButton!
+    @IBOutlet weak var sixthSetButton: UIButton!
+    
+    // Button Weight Labels
+    @IBOutlet weak var firstWeightLabel: UILabel!
+    @IBOutlet weak var secondWeightLabel: UILabel!
+    @IBOutlet weak var thirdWeightLabel: UILabel!
+    @IBOutlet weak var fourthWeightLabel: UILabel!
+    @IBOutlet weak var fifthWeightLabel: UILabel!
+    @IBOutlet weak var sixthWeightLabel: UILabel!
+    
+    // One Rep Max Labels
     @IBOutlet weak var exerciseNameLabel: UILabel!
-    @IBOutlet weak var exerciseStackView: UIStackView!
     @IBOutlet weak var oneRepMaxLabel: UILabel!
 
     
     // MARK: Actions
+    // Set Buttons
+    @IBAction func firstButtonPressed(sender: UIButton) {
+        print("first")
+        secondSetButton.enabled = true
+    }
+    
+    @IBAction func secondButtonPressed(sender: UIButton) {
+        print("second")
+        thirdSetButton.enabled = true
+    }
+    
+    @IBAction func thirdButtonPressed(sender: UIButton) {
+        print("third")
+        fourthSetButton.enabled = true
+    }
+    
+    @IBAction func fourthButtonPressed(sender: UIButton) {
+        print("fourth")
+        fifthSetButton.enabled = true
+    }
+    
+    @IBAction func fifthButtonPressed(sender: UIButton) {
+        print("fifth")
+        sixthSetButton.enabled = true
+    }
+    
+    @IBAction func sixthButtonPressed(sender: UIButton) {
+        print("sixth")
+        // pass data to graph vc?
+    }
+    
+    // One Rep Max Buttons
     @IBAction func addWeightButton(sender: UIButton) {
         try! Realm().write {
             exercise.oneRepMax += 5         // add weight on the exercise's ORM by 5 pounds
@@ -44,30 +92,15 @@ class ExerciseTableViewCell: UITableViewCell {
     // MARK: General Functions
     
     func configureButtons() {
-        
-        for view in self.exerciseStackView.subviews {
-            view.removeFromSuperview()
-        }
-        
         let weights = exercise.weightsForSet()
         
-        for i in 0..<setsOfReps.count {
-            let eachSet = setsOfReps[i]
-            let weight = weights[i]
-            
-            if let customView = NSBundle.mainBundle().loadNibNamed("SetButton", owner: self, options: nil).first as? SetButton {
-                
-                customView.setButton.setTitle("\(eachSet)", forState: .Normal)
-//                customView.setButton.setTitle("0", forState: .Selected)
-//                
-//                if i != 0 {
-//                    customView.setButton.enabled = false
-//                }
-                customView.weightLabel.text = String(format: "%0.f lbs", roundToFives(weight))
-                
-                self.exerciseStackView.addArrangedSubview(customView)
-            }
-        }
+        // refactor this
+        firstWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[0]))
+        secondWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[1]))
+        thirdWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[2]))
+        fourthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[3]))
+        fifthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[4]))
+        sixthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[5]))
     }
     
     func exerciseName() {

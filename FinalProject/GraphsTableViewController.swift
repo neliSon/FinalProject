@@ -12,7 +12,7 @@ import RealmSwift
 class GraphsTableViewController: UITableViewController {
 
     // MARK: Properties
-    var routines = (try! Realm()).objects(Routine)
+//    var routines = (try! Realm()).objects(Routine)
     
     override func viewDidLoad() {
         super.viewDidLoad()
