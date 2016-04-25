@@ -11,6 +11,7 @@ import RealmSwift
 
 class Routine: Object {
     
+    // MARK: Properties
     dynamic var name = ""
     let exercises = List<Exercise>()
 

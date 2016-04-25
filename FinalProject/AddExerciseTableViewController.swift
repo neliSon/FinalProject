@@ -47,7 +47,6 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         // Hide keyboard.
         textField.resignFirstResponder()
         return true

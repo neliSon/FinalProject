@@ -12,7 +12,6 @@ import RealmSwift
 class ExerciseTableViewCell: UITableViewCell {
 
     // MARK: Properties
-//    let setsOfReps = [20, 8, 6, 5, 5, 2]                    // amount of reps per set
     var exercise: Exercise! = nil {
         didSet {
             updateUI()
@@ -69,7 +68,15 @@ class ExerciseTableViewCell: UITableViewCell {
     
     @IBAction func sixthButtonPressed(sender: UIButton) {
         print("sixth")
-        // pass data to graph vc?
+        // add one rep max to array
+        let weight = exercise.oneRepMax
+        let everyMaxRep = EveryMaxRep()
+        let realm = try! Realm()
+        try! realm.write {
+            everyMaxRep.weight = weight
+            exercise.oneRepMaxes.append(everyMaxRep)
+        }
+//        print(exercise.oneRepMaxes)
     }
     
     // One Rep Max Buttons
@@ -90,11 +97,10 @@ class ExerciseTableViewCell: UITableViewCell {
     }
     
     // MARK: General Functions
-    
     func configureButtons() {
         let weights = exercise.weightsForSet()
         
-        // refactor this
+        // maybe refactor this
         firstWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[0]))
         secondWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[1]))
         thirdWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[2]))

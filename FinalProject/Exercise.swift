@@ -12,9 +12,10 @@ import RealmSwift
 class Exercise: Object {
     
     // MARK: Properties
-    
-    dynamic var name = ""               // name of exercise
-    dynamic var oneRepMax = 0.0         // maximum amount of weight user can lift
+    dynamic var name = ""                   // name of exercise
+    dynamic var oneRepMax = 0.0             // maximum amount of weight user can lift
+    let oneRepMaxes = List<EveryMaxRep>()   // array of orm
+
     
     convenience init?(name: String, oneRepMax: Double) {
         self.init()
@@ -22,6 +23,7 @@ class Exercise: Object {
         self.oneRepMax = oneRepMax
     }
 
+    // MARK: General Functions
     func weightsForSet() -> [Double] {
     
         let percentages = [0.5, 0.6, 0.8, 0.8, 0.9, 0.95]
@@ -30,18 +32,12 @@ class Exercise: Object {
             percentage in
             return roundToFives(self.oneRepMax * percentage)
         }
-        
         return weights
     }
 }
 
+
 func roundToFives(x : Double) -> Double {
     return 5 * (round(x / 5.0))     // round any double to the nearest 5
 }
-//
-//enum RoutineType: Int {
-//    case LowerBody
-//    case Back
-//    case ChestAndShoulders
-//    case All
-//}
+

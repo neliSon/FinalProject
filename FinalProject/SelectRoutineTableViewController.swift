@@ -40,7 +40,6 @@ class SelectRoutineTableViewController: UITableViewController {
     }
     
     // MARK: Segues
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showExerciseSegue" {
 
