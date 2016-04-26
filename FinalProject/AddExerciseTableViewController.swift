@@ -62,7 +62,6 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     // MARK: General Functions
-    
     func checkValidFields() {
         // Disable the Save button if the text fields are empty.
         let nameText = exerciseNameTextField.text ?? ""
