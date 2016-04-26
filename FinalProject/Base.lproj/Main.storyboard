@@ -569,19 +569,80 @@
         <!--Graphs Table View Controller-->
         <scene sceneID="uuG-6R-i42">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u93-RM-EcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="exM-9u-dnj" customClass="GraphsTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckG-k4-5Qo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckG-k4-5Qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="graphCell" id="UWF-gO-KWv">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="205" id="UWF-gO-KWv" customClass="GraphTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="205"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UWF-gO-KWv" id="cLB-8B-Lkg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhO-6S-Kgg" customClass="BEMSimpleLineGraphView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-xO-SgP">
+                                                    <rect key="frame" x="35" y="0.0" width="45" height="32.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="23"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Zre-xO-SgP" firstAttribute="leading" secondItem="DhO-6S-Kgg" secondAttribute="leading" constant="35" id="8JE-Xf-Agh"/>
+                                                <constraint firstItem="Zre-xO-SgP" firstAttribute="top" secondItem="DhO-6S-Kgg" secondAttribute="top" id="qjD-q1-BV2"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorPoint">
+                                                    <color key="value" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorLine">
+                                                    <color key="value" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="sizePoint">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorXaxisLabel">
+                                                    <color key="value" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorYaxisLabel">
+                                                    <color key="value" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="dataSource" destination="UWF-gO-KWv" id="XWW-hc-6af"/>
+                                                <outlet property="delegate" destination="UWF-gO-KWv" id="M21-D9-CKg"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="DhO-6S-Kgg" secondAttribute="trailing" id="7HV-UG-GcP"/>
+                                        <constraint firstItem="DhO-6S-Kgg" firstAttribute="top" secondItem="cLB-8B-Lkg" secondAttribute="top" id="QXs-ys-rhw"/>
+                                        <constraint firstAttribute="bottom" secondItem="DhO-6S-Kgg" secondAttribute="bottom" constant="-20" id="Tb7-BH-ahh"/>
+                                        <constraint firstItem="DhO-6S-Kgg" firstAttribute="leading" secondItem="cLB-8B-Lkg" secondAttribute="leading" id="lj7-Yg-mGi"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="graphLabel" destination="Zre-xO-SgP" id="JsS-as-6NK"/>
+                                    <outlet property="graphView" destination="DhO-6S-Kgg" id="4ut-cS-kw4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -592,7 +653,6 @@
                     <navigationItem key="navigationItem" id="NqD-qk-36E"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u93-RM-EcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3541.5" y="1181.5"/>
         </scene>

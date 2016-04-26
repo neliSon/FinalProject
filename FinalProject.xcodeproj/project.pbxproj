@@ -16,6 +16,7 @@
 		1B097CBF1CCAB2050033AAB9 /* AddExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B097CBE1CCAB2050033AAB9 /* AddExerciseTableViewController.swift */; };
 		1B097CC11CCC021F0033AAB9 /* GraphsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B097CC01CCC021F0033AAB9 /* GraphsTableViewController.swift */; };
 		1B79AC321CCEAEF600ACBC4E /* EveryMaxRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79AC311CCEAEF600ACBC4E /* EveryMaxRep.swift */; };
+		1B79AC341CCEB9F000ACBC4E /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */; };
 		1B7CE6EC1CC6D8B000BD9B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CE6EB1CC6D8B000BD9B32 /* AppDelegate.swift */; };
 		1B7CE6F11CC6D8B000BD9B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CE6EF1CC6D8B000BD9B32 /* Main.storyboard */; };
 		1B7CE6F31CC6D8B000BD9B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CE6F21CC6D8B000BD9B32 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		1B097CBE1CCAB2050033AAB9 /* AddExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseTableViewController.swift; sourceTree = "<group>"; };
 		1B097CC01CCC021F0033AAB9 /* GraphsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsTableViewController.swift; sourceTree = "<group>"; };
 		1B79AC311CCEAEF600ACBC4E /* EveryMaxRep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EveryMaxRep.swift; sourceTree = "<group>"; };
+		1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
 		1B7CE6E81CC6D8B000BD9B32 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7CE6EB1CC6D8B000BD9B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7CE6F01CC6D8B000BD9B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				1B095D5F1CC7F8DC000A3B14 /* ExerciseTableViewCell.swift */,
 				1B097CB81CC97D940033AAB9 /* SelectRoutineTableViewCell.swift */,
+				1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				1B097CB71CC97C470033AAB9 /* SelectRoutineTableViewController.swift in Sources */,
 				1B79AC321CCEAEF600ACBC4E /* EveryMaxRep.swift in Sources */,
 				1B097CBF1CCAB2050033AAB9 /* AddExerciseTableViewController.swift in Sources */,
+				1B79AC341CCEB9F000ACBC4E /* GraphTableViewCell.swift in Sources */,
 				1B095D571CC6F507000A3B14 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

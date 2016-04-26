@@ -13,7 +13,6 @@ class SelectRoutineTableViewController: UITableViewController {
 
     // MARK: Properties
     var routines = (try! Realm()).objects(Routine)
-//    var routineType: RoutineType!
 
     override func viewDidLoad() {
         super.viewDidLoad()

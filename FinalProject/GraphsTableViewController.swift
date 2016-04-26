@@ -8,33 +8,51 @@
 
 import UIKit
 import RealmSwift
-import BEMSimpleLineGraph
+//import BEMSimpleLineGraph
 
 class GraphsTableViewController: UITableViewController {
 
     // MARK: Properties
-    
+    var routines = (try! Realm()).objects(Routine)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        routines = (try! Realm()).objects(Routine)
+        tableView.reloadData()
     }
-
+    // MARK: TableViewDataSource
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let routine = routines[section]
+        
+        return routine.exercises.count
+        // return count of exercises in each routine
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return routines.count
+        // return count of routines
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("graphCell", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("graphCell", forIndexPath: indexPath) as! GraphTableViewCell
         
-
+        let routine = routines[indexPath.section]
+        let exercise = routine.exercises[indexPath.row]
+        
+        cell.exercise = exercise
+        
         return cell
+    }
+    
+    // MARK: TableViewDelegate
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
     }
 }

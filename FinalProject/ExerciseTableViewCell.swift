@@ -76,7 +76,7 @@ class ExerciseTableViewCell: UITableViewCell {
             everyMaxRep.weight = weight
             exercise.oneRepMaxes.append(everyMaxRep)
         }
-//        print(exercise.oneRepMaxes)
+        print(exercise.oneRepMaxes)
     }
     
     // One Rep Max Buttons
