@@ -18,6 +18,8 @@ class ExerciseTableViewCell: UITableViewCell {
         }
     }
     
+    var crossImageViews = [UIImageView]()
+    
     // Set Buttons
     @IBOutlet weak var firstSetButton: UIButton!
     @IBOutlet weak var secondSetButton: UIButton!
@@ -44,30 +46,41 @@ class ExerciseTableViewCell: UITableViewCell {
     @IBAction func firstButtonPressed(sender: UIButton) {
         print("first")
         secondSetButton.enabled = true
+        firstSetButton.enabled = false
+        crossElement(sender)
     }
     
     @IBAction func secondButtonPressed(sender: UIButton) {
         print("second")
         thirdSetButton.enabled = true
+        secondSetButton.enabled = false
+        crossElement(sender)
     }
     
     @IBAction func thirdButtonPressed(sender: UIButton) {
         print("third")
         fourthSetButton.enabled = true
+        thirdSetButton.enabled = false
+        crossElement(sender)
     }
     
     @IBAction func fourthButtonPressed(sender: UIButton) {
         print("fourth")
         fifthSetButton.enabled = true
+        fourthSetButton.enabled = false
+        crossElement(sender)
     }
     
     @IBAction func fifthButtonPressed(sender: UIButton) {
         print("fifth")
         sixthSetButton.enabled = true
+        fifthSetButton.enabled = false
+        crossElement(sender)
     }
     
     @IBAction func sixthButtonPressed(sender: UIButton) {
         print("sixth")
+        crossElement(sender)
         // add one rep max to array
         let weight = exercise.oneRepMax
         let everyMaxRep = EveryMaxRep()
@@ -107,6 +120,7 @@ class ExerciseTableViewCell: UITableViewCell {
         fourthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[3]))
         fifthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[4]))
         sixthWeightLabel.text = String(format: "%0.f lbs", roundToFives(weights[5]))
+        
     }
     
     func exerciseName() {
@@ -117,5 +131,22 @@ class ExerciseTableViewCell: UITableViewCell {
         oneRepMaxLabel.text = String(format: "%0.f lbs", exercise.oneRepMax)
         exerciseName()
         configureButtons()
+    }
+    
+    func crossElement(sender: UIButton, animated: Bool = true) {
+        let crossImageView = UIImageView(image: UIImage(named: "cross"))
+        crossImageView.frame = CGRectMake(0, 0, sender.frame.width*5, sender.frame.height*5)
+        crossImageView.center = sender.center
+        sender.superview?.addSubview(crossImageView)
+        crossImageViews.append(crossImageView)
+        if animated {
+            UIView.animateWithDuration(0.8) {
+                crossImageView.frame = CGRectMake(0, 0, sender.frame.width, sender.frame.height)
+                crossImageView.center = sender.center
+            }
+        } else {
+            crossImageView.frame = CGRectMake(0, 0, sender.frame.width, sender.frame.height)
+            crossImageView.center = sender.center
+        }
     }
 }
