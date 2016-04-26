@@ -21,8 +21,8 @@ class GraphsTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         routines = (try! Realm()).objects(Routine)
         tableView.reloadData()
     }

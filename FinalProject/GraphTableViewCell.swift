@@ -15,16 +15,22 @@ class GraphTableViewCell: UITableViewCell, BEMSimpleLineGraphDelegate, BEMSimple
     var exercise: Exercise! {
         didSet {
             graphLabel.text = exercise.name
+            reloadUI()
         }
     }
     
-    @IBOutlet weak var graphLabel: UILabel!
-    @IBOutlet weak var graphView: BEMSimpleLineGraphView!
+    @IBOutlet var graphLabel: UILabel!
+    @IBOutlet var graphView: BEMSimpleLineGraphView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        graphView.enablePopUpReport = false
+        graphView.enableTouchReport = false
+        for gesture in graphView.gestureRecognizers ?? [] {
+            graphView.removeGestureRecognizer(gesture)
+        }
     }
 
     // MARK: BEMSimpleLineGraphDataSource

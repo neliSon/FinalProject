@@ -585,20 +585,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhO-6S-Kgg" customClass="BEMSimpleLineGraphView">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-xO-SgP">
-                                                    <rect key="frame" x="35" y="0.0" width="45" height="32.5"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="23"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="Zre-xO-SgP" firstAttribute="leading" secondItem="DhO-6S-Kgg" secondAttribute="leading" constant="35" id="8JE-Xf-Agh"/>
-                                                <constraint firstItem="Zre-xO-SgP" firstAttribute="top" secondItem="DhO-6S-Kgg" secondAttribute="top" id="qjD-q1-BV2"/>
-                                            </constraints>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
@@ -630,9 +617,18 @@
                                                 <outlet property="delegate" destination="UWF-gO-KWv" id="M21-D9-CKg"/>
                                             </connections>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-xO-SgP">
+                                            <rect key="frame" x="33" y="8.5" width="47" height="32.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="23"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="DhO-6S-Kgg" secondAttribute="trailing" id="7HV-UG-GcP"/>
+                                        <constraint firstItem="Zre-xO-SgP" firstAttribute="top" secondItem="cLB-8B-Lkg" secondAttribute="topMargin" id="Nlk-xT-Gmm"/>
+                                        <constraint firstItem="Zre-xO-SgP" firstAttribute="leading" secondItem="cLB-8B-Lkg" secondAttribute="leadingMargin" constant="25" id="PV3-Ng-EoV"/>
                                         <constraint firstItem="DhO-6S-Kgg" firstAttribute="top" secondItem="cLB-8B-Lkg" secondAttribute="top" id="QXs-ys-rhw"/>
                                         <constraint firstAttribute="bottom" secondItem="DhO-6S-Kgg" secondAttribute="bottom" constant="-20" id="Tb7-BH-ahh"/>
                                         <constraint firstItem="DhO-6S-Kgg" firstAttribute="leading" secondItem="cLB-8B-Lkg" secondAttribute="leading" id="lj7-Yg-mGi"/>
