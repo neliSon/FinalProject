@@ -26,17 +26,10 @@ class GraphTableViewCell: UITableViewCell, BEMSimpleLineGraphDelegate, BEMSimple
         super.awakeFromNib()
         // Initialization code
         
-        graphView.enablePopUpReport = false
-        graphView.enableTouchReport = false
-        for gesture in graphView.gestureRecognizers ?? [] {
-            graphView.removeGestureRecognizer(gesture)
-        }
     }
 
     // MARK: BEMSimpleLineGraphDataSource
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        print(exercise.oneRepMaxes)
-        
         return exercise.oneRepMaxes.count
     }
     

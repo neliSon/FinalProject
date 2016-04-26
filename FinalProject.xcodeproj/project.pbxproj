@@ -17,10 +17,12 @@
 		1B097CC11CCC021F0033AAB9 /* GraphsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B097CC01CCC021F0033AAB9 /* GraphsTableViewController.swift */; };
 		1B79AC321CCEAEF600ACBC4E /* EveryMaxRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79AC311CCEAEF600ACBC4E /* EveryMaxRep.swift */; };
 		1B79AC341CCEB9F000ACBC4E /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */; };
+		1B79AC361CD0018200ACBC4E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79AC351CD0018200ACBC4E /* PhotoViewController.swift */; };
 		1B7CE6EC1CC6D8B000BD9B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CE6EB1CC6D8B000BD9B32 /* AppDelegate.swift */; };
 		1B7CE6F11CC6D8B000BD9B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CE6EF1CC6D8B000BD9B32 /* Main.storyboard */; };
 		1B7CE6F31CC6D8B000BD9B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CE6F21CC6D8B000BD9B32 /* Assets.xcassets */; };
 		1B7CE6F61CC6D8B000BD9B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CE6F41CC6D8B000BD9B32 /* LaunchScreen.storyboard */; };
+		1BA448571CD014CB00B28AE5 /* GraphHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA448561CD014CB00B28AE5 /* GraphHeaderCell.swift */; };
 		62036D731F1F566BDCA72751 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5956E60B77CD1952C2446E7 /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,12 +37,14 @@
 		1B097CC01CCC021F0033AAB9 /* GraphsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsTableViewController.swift; sourceTree = "<group>"; };
 		1B79AC311CCEAEF600ACBC4E /* EveryMaxRep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EveryMaxRep.swift; sourceTree = "<group>"; };
 		1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
+		1B79AC351CD0018200ACBC4E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		1B7CE6E81CC6D8B000BD9B32 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7CE6EB1CC6D8B000BD9B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7CE6F01CC6D8B000BD9B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B7CE6F21CC6D8B000BD9B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B7CE6F51CC6D8B000BD9B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B7CE6F71CC6D8B000BD9B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BA448561CD014CB00B28AE5 /* GraphHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphHeaderCell.swift; sourceTree = "<group>"; };
 		2368772DFBF8D40256468577 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		617DDFEF3407B588F3E70C05 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		C5956E60B77CD1952C2446E7 /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,7 @@
 				1B095D5F1CC7F8DC000A3B14 /* ExerciseTableViewCell.swift */,
 				1B097CB81CC97D940033AAB9 /* SelectRoutineTableViewCell.swift */,
 				1B79AC331CCEB9F000ACBC4E /* GraphTableViewCell.swift */,
+				1BA448561CD014CB00B28AE5 /* GraphHeaderCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				1B095D5B1CC7F5A2000A3B14 /* RoutineTableViewController.swift */,
 				1B097CB61CC97C470033AAB9 /* SelectRoutineTableViewController.swift */,
 				1B097CC01CCC021F0033AAB9 /* GraphsTableViewController.swift */,
+				1B79AC351CD0018200ACBC4E /* PhotoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 				1B095D5C1CC7F5A2000A3B14 /* RoutineTableViewController.swift in Sources */,
 				1B7CE6EC1CC6D8B000BD9B32 /* AppDelegate.swift in Sources */,
 				1B097CC11CCC021F0033AAB9 /* GraphsTableViewController.swift in Sources */,
+				1BA448571CD014CB00B28AE5 /* GraphHeaderCell.swift in Sources */,
+				1B79AC361CD0018200ACBC4E /* PhotoViewController.swift in Sources */,
 				1B095D601CC7F8DC000A3B14 /* ExerciseTableViewCell.swift in Sources */,
 				1B097CB71CC97C470033AAB9 /* SelectRoutineTableViewController.swift in Sources */,
 				1B79AC321CCEAEF600ACBC4E /* EveryMaxRep.swift in Sources */,

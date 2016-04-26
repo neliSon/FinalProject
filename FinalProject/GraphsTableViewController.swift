@@ -17,8 +17,7 @@ class GraphsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,6 +48,19 @@ class GraphsTableViewController: UITableViewController {
         cell.exercise = exercise
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableCellWithIdentifier("graphHeader") as! GraphHeaderCell
+        
+        let routine = routines[section]
+        header.headerLabel.text = routine.name
+        
+        return header
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     // MARK: TableViewDelegate
