@@ -13,7 +13,6 @@ class GraphHeaderCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var headerLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

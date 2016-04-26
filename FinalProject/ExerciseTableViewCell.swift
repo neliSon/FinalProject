@@ -80,6 +80,7 @@ class ExerciseTableViewCell: UITableViewCell {
     
     @IBAction func sixthButtonPressed(sender: UIButton) {
         print("sixth")
+        sixthSetButton.enabled = false
         crossElement(sender)
         // add one rep max to array
         let weight = exercise.oneRepMax

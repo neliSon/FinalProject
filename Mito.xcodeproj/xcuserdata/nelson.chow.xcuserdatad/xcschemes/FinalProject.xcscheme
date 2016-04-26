@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1B7CE6E71CC6D8B000BD9B32"
                BuildableName = "FinalProject.app"
                BlueprintName = "FinalProject"
-               ReferencedContainer = "container:FinalProject.xcodeproj">
+               ReferencedContainer = "container:Mito.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "1B7CE6E71CC6D8B000BD9B32"
             BuildableName = "FinalProject.app"
             BlueprintName = "FinalProject"
-            ReferencedContainer = "container:FinalProject.xcodeproj">
+            ReferencedContainer = "container:Mito.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "1B7CE6E71CC6D8B000BD9B32"
             BuildableName = "FinalProject.app"
             BlueprintName = "FinalProject"
-            ReferencedContainer = "container:FinalProject.xcodeproj">
+            ReferencedContainer = "container:Mito.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "1B7CE6E71CC6D8B000BD9B32"
             BuildableName = "FinalProject.app"
             BlueprintName = "FinalProject"
-            ReferencedContainer = "container:FinalProject.xcodeproj">
+            ReferencedContainer = "container:Mito.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
