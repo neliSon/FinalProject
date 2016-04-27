@@ -695,23 +695,39 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-XM-KO6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yu9-F7-N6L">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="554"/>
-                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cw6-yR-DNr">
-                                        <rect key="frame" x="188" y="0.0" width="188" height="554"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ub-VQ-Cik">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="554"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yu9-F7-N6L">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="554"/>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Yu9-F7-N6L" firstAttribute="top" secondItem="1Ub-VQ-Cik" secondAttribute="top" id="0DB-hn-G2Q"/>
+                                            <constraint firstItem="Yu9-F7-N6L" firstAttribute="leading" secondItem="1Ub-VQ-Cik" secondAttribute="leading" id="Fnj-xy-ZRR"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yu9-F7-N6L" secondAttribute="bottom" id="gxE-dU-aRd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yu9-F7-N6L" secondAttribute="trailing" id="jSn-Uk-Y15"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv3-wK-BMa">
+                                        <rect key="frame" x="187" y="0.0" width="187.5" height="554"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cw6-yR-DNr">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="554"/>
+                                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Cw6-yR-DNr" firstAttribute="top" secondItem="cv3-wK-BMa" secondAttribute="top" id="P0b-Qd-XdC"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cw6-yR-DNr" secondAttribute="bottom" id="QQ8-EW-zm5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cw6-yR-DNr" secondAttribute="trailing" id="UtH-CB-gAD"/>
+                                            <constraint firstItem="Cw6-yR-DNr" firstAttribute="leading" secondItem="cv3-wK-BMa" secondAttribute="leading" id="gie-dT-blT"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Yu9-F7-N6L" secondAttribute="bottom" id="7TC-y4-dCM"/>
-                                    <constraint firstItem="Cw6-yR-DNr" firstAttribute="top" secondItem="eX5-XM-KO6" secondAttribute="top" id="Ogc-7e-Yyw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Cw6-yR-DNr" secondAttribute="bottom" id="SIV-NV-FfA"/>
-                                    <constraint firstItem="Yu9-F7-N6L" firstAttribute="top" secondItem="eX5-XM-KO6" secondAttribute="top" id="TJE-zh-mxk"/>
-                                    <constraint firstItem="Yu9-F7-N6L" firstAttribute="leading" secondItem="eX5-XM-KO6" secondAttribute="leading" id="YDn-j7-qD3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Cw6-yR-DNr" secondAttribute="trailing" id="gfg-ZP-ac6"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -724,10 +740,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="nqM-D4-ek9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="leftImageView" destination="Yu9-F7-N6L" id="BVW-Q2-EGW"/>
+                        <outlet property="rightImageView" destination="Cw6-yR-DNr" id="KIg-va-MjF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhp-qo-MC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3541.5" y="2030.5"/>
+            <point key="canvasLocation" x="3541.5" y="2802.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QFp-7v-GDC">
