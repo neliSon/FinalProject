@@ -7,74 +7,70 @@
 //
 
 import UIKit
+import RealmSwift
 
-private let reuseIdentifier = "Cell"
-
-class GalleryCollectionViewController: UICollectionViewController {
-
+class GalleryCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var photos = (try! Realm()).objects(Photo)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        configureLayout()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
-
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
-
-
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        if section == 1 {
+            return 1
+        } else {
+            return photos.count
+        }
     }
-
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! GalleryCollectionViewCell
+            
+            let photo = photos[indexPath.row]
+            let data = photo.progressPhotoData
+            let image = UIImage(data: data!)
+            cell.photoImageView.image = image
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("imagePickerCell", forIndexPath: indexPath) as! ImagePIckerCollectionViewCell
+            
+            cell.imagePicker.delegate = self
+            cell.viewController = self
+            cell.imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            
+            return cell
+        }
+    }
     
-        // Configure the cell
-    
-        return cell
+    // MARK: UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            let unformattedData = UIImageJPEGRepresentation(image, 1.0)
+            let date = NSDate()
+            if let data = unformattedData {
+                let photo = Photo(progressPhotoData: data, date: date)
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.add(photo)
+                }
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -90,5 +86,20 @@ class GalleryCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    // MARK: General Functions
+    func configureLayout() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: collectionView!.frame.width, height: collectionView!.frame.height)
+        flowLayout.sectionInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.scrollDirection = .Horizontal
+        
+        self.collectionView!.pagingEnabled = true
+        self.collectionView!.collectionViewLayout = flowLayout;
+        self.collectionView!.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.collectionView!.contentOffset = CGPointZero
+    }
 
 }

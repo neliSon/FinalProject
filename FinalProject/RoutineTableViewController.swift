@@ -45,12 +45,8 @@ class RoutineTableViewController: UITableViewController {
         
         cell.exercise = exercise
 
-        // Buttons should only be enabled when the previous one is pressed.
-        cell.secondSetButton.enabled = false
-        cell.thirdSetButton.enabled = false
-        cell.fourthSetButton.enabled = false
-        cell.fifthSetButton.enabled = false
-        cell.sixthSetButton.enabled = false
+        // Buttons 2- 6 should only be enabled when the previous one is pressed.
+        disableButtons(cell)
         
         return cell
     }
@@ -89,7 +85,13 @@ class RoutineTableViewController: UITableViewController {
             destinationVC.routine = routine
         }
     }
-
-    // MARK: General Functions
     
+    // MARK: General Functions
+    func disableButtons(cell: ExerciseTableViewCell) {
+        cell.secondSetButton.enabled = false
+        cell.thirdSetButton.enabled = false
+        cell.fourthSetButton.enabled = false
+        cell.fifthSetButton.enabled = false
+        cell.sixthSetButton.enabled = false
+    }
 }

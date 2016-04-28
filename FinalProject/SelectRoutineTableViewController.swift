@@ -28,7 +28,6 @@ class SelectRoutineTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("RoutineCell", forIndexPath: indexPath) as! SelectRoutineTableViewCell
 
         let routine = routines[indexPath.row]
-        
         cell.routineLabel.text = routine.name
 
         return cell

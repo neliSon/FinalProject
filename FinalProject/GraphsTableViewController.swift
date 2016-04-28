@@ -29,14 +29,11 @@ class GraphsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let routine = routines[section]
-        
-        return routine.exercises.count
-        // return count of exercises in each routine
+        return routine.exercises.count      // return count of exercises in each routine
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return routines.count
-        // return count of routines
+        return routines.count               // return count of routines
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

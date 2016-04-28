@@ -3,10 +3,10 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-target 'FinalProject' do
 use_frameworks!
+
+target 'FinalProject' do
 pod ‘RealmSwift’
 pod 'BEMSimpleLineGraph'
-
 end
 

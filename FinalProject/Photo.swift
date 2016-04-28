@@ -11,9 +11,13 @@ import RealmSwift
 
 class Photo: Object {
     
-// Specify properties to ignore (Realm won't persist these)
+    // MARK: Properties
+    dynamic var progressPhotoData: NSData?
+    dynamic var date: NSDate?
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    convenience init(progressPhotoData: NSData, date: NSDate) {
+        self.init()
+        self.progressPhotoData = progressPhotoData
+        self.date = date
+    }
 }

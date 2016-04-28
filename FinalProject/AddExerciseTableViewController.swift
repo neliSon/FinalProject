@@ -31,7 +31,6 @@ class AddExerciseTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     // MARK: Actions
-    
     @IBAction func saveExerciseButton(sender: UIBarButtonItem) {
         // create exercise with name and weight
         let name = exerciseNameTextField.text!
