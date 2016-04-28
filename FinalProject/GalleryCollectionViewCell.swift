@@ -12,5 +12,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
 }

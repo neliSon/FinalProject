@@ -747,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhp-qo-MC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3541.5" y="2840.5"/>
+            <point key="canvasLocation" x="4465.5" y="2030.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QFp-7v-GDC">
@@ -807,18 +807,34 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="74T-KV-6Vd">
                                             <rect key="frame" x="0.0" y="0.0" width="175.5" height="175"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-rC-AuL">
+                                            <rect key="frame" x="16" y="42" width="33" height="24.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
+                                            <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="9ZN-rC-AuL" firstAttribute="leading" secondItem="ike-G0-eba" secondAttribute="leadingMargin" constant="8" id="QTy-fX-t3A"/>
                                     <constraint firstItem="74T-KV-6Vd" firstAttribute="leading" secondItem="ike-G0-eba" secondAttribute="leading" id="R84-M3-HLL"/>
                                     <constraint firstAttribute="bottom" secondItem="74T-KV-6Vd" secondAttribute="bottom" id="Y9M-2h-cEV"/>
                                     <constraint firstItem="74T-KV-6Vd" firstAttribute="top" secondItem="ike-G0-eba" secondAttribute="top" id="bOY-7S-xT8"/>
                                     <constraint firstAttribute="trailing" secondItem="74T-KV-6Vd" secondAttribute="trailing" id="h9p-XS-x7W"/>
+                                    <constraint firstItem="9ZN-rC-AuL" firstAttribute="top" secondItem="ike-G0-eba" secondAttribute="topMargin" constant="34" id="pqo-Cq-hUJ"/>
                                 </constraints>
                                 <size key="customSize" width="175.5" height="175"/>
                                 <connections>
+                                    <outlet property="dateLabel" destination="9ZN-rC-AuL" id="Oip-7o-SVH"/>
                                     <outlet property="photoImageView" destination="74T-KV-6Vd" id="ZHQ-3M-u1z"/>
                                 </connections>
                             </collectionViewCell>

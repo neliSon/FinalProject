@@ -18,6 +18,10 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
         
         configureLayout()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        collectionView?.reloadData()
+    }
 
     // MARK: UICollectionViewDataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -41,7 +45,12 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
             let image = UIImage(data: data!)
             cell.photoImageView.image = image
             
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = .MediumStyle
+            cell.dateLabel.text = formatter.stringFromDate(photo.date!)
+            
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("imagePickerCell", forIndexPath: indexPath) as! ImagePIckerCollectionViewCell
             
@@ -67,25 +76,9 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
                 }
             }
             self.dismissViewControllerAnimated(true, completion: nil)
+            
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
     
     // MARK: General Functions
     func configureLayout() {
